@@ -27,19 +27,22 @@ import {
   addPost,
   getPost,
   editPost,
-  deletedPost
+  deletedPost,
+  addCommentPost,
+  getComentPost
 } from "../src/controller/controller-Firebase.js";
 
 describe('addPost', () => {
   it('addPost aregar un post', (done) => {
-    return addPost('Hola amigos', '12345', 'chiquinquira@gmail.com', 'public', 1).then(() => {
-      const callback = (post) => {
-        const postAdded = post.find(ele => ele.post === 'Hola amigos')
-        expect(postAdded.post).toBe('Hola amigos')
-        done()
-      }
-      getPost(callback)
-    })
+    return addPost('Hola amigos', '12345', 'chiquinquira@gmail.com', 'public', 1,
+      '5/16/2019, 2:36:01 PM').then(() => {
+        const callback = (post) => {
+          const postAdded = post.find(ele => ele.post === 'Hola amigos')
+          expect(postAdded.post).toBe('Hola amigos')
+          done()
+        }
+        getPost(callback)
+      })
   })
 })
 
@@ -68,3 +71,17 @@ describe('deletedPost', () => {
     })
   })
 })
+
+/* describe('addCommentPost', () => {
+  it('addCommentPost deberia ',(done) => {
+    return addCommentPost('abc123','Muy bueno').then (()=>{
+      const callback = (post) => {
+        const commet = post.find(ele => ele.post=== 'Muy bueno');
+        expect(commet).toBe('Muy bueno');
+        done()
+      }
+      getComentPost('abc123',callback)
+    })
+  })
+
+}) */
