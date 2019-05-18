@@ -30,10 +30,12 @@ export default (post, index, userId) => {
   } else {
     if (userId != post.userId && post.privacy === 'public') {
       divPostContent.innerHTML = `
-      <section>
-        <p> ${post.user} </p>
-        <p rows="8" cols="50"> ${post.post} &#128101   </p>
-        <button id="btn-delete" ><img class="icon-menu" src="./img/delete.png"/></button>
+      <section class="block-post">
+        <p class="user-post"> ${post.user} </p>
+        <p class="post-post" rows="8" cols="50"> ${post.post} &#128101   </p>
+        <form>
+          <span id="btn-delete" ><img class="icon-post" src="./img/delete.png"/></span>
+        </form>
       </section>`;
       divPostContent.innerHTML += ` <div id="count-likes-${index}"> ${post.likes} &#x1F49A </div>`
 
