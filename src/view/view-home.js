@@ -30,7 +30,7 @@ export const home = (post) => {
       <textarea class="share-post" name="textarea" rows="8" cols="50" id="input-post" placeholder="¿Qué estas pensando?"></textarea>
       <form>
       <label for="file">&#128247</label>
-      <input type="file" class="hidden" type="file" id="file" name="file" multiple>
+      <input class="hidden" type="file" id="file" name="file" accept="image/png, image/jpeg, image/gif" multiple>
         <select id="privacy-select">
           <option value="public" > Público &#128101 </option>
           <option value="private">Privado &#128274</option>
