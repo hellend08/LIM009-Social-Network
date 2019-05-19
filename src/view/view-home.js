@@ -1,4 +1,4 @@
-import { userData } from '../controller/controller-Firebase.js'
+import { userData,  getPublicPost, getPrivatePost } from '../controller/controller-Firebase.js'
 import { addPostSubmit } from './view-controller.js'
 
 import itemPost from './post.js'
@@ -9,7 +9,6 @@ export const home = (post) => {
   /* let us;
   onUsuarioLoggeado((user) => console.log(user))
   console.log(us); */
-
   const template = `
   <main>
     <nav class="menu">
@@ -50,9 +49,23 @@ export const home = (post) => {
   const privacySelect = pageMain.querySelector('#privacy-select');
   const btnAddPost = pageMain.querySelector('#btn-add-post');
   const divPost = pageMain.querySelector('#post-content');
-  const inputFile = pageMain.querySelector('#input-file');
-  post.forEach((post, index) => {
-    divPost.appendChild(itemPost(post, index, userId))
+
+
+  post.forEach((post) => {
+    if( userId != post.userId) {
+      getPublicPost((postPublic)=> {
+        postPublic.forEach((post, index) =>{
+        divPost.appendChild(itemPost(post, index, userId))
+      })
+      })     
+    } else {
+      getPrivatePost((postPrivate)=>{
+        postPrivate.forEach((post, index)=>{
+          divPost.appendChild(itemPost(post, index, userId))
+        })
+      })
+    }
+   
   });
   btnAddPost.addEventListener('click', () => {
     const privacySelectValue = privacySelect.value

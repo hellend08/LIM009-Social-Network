@@ -1,6 +1,6 @@
 
-export default (comments) => {
+export default (comment) => {
     const divContentComment = document.createElement('p');
-    divContentComment.innerHTML = ` <p > ${comments.postComent}</p>`
+    divContentComment.innerHTML = `<p > ${comment.postComent}</p>`
     return divContentComment;
 }

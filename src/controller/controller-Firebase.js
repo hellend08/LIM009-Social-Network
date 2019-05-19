@@ -1,10 +1,6 @@
-export const singUp = (email, contraseña) =>
-  firebase.auth().createUserWithEmailAndPassword(email, contraseña)
+export const singUp = (email, contraseña) =>  firebase.auth().createUserWithEmailAndPassword(email, contraseña)
 
-
-export const signIn = (email, contraseña) =>
-  firebase.auth().signInWithEmailAndPassword(email, contraseña)
-
+export const signIn = (email, contraseña) =>  firebase.auth().signInWithEmailAndPassword(email, contraseña)
 
 export const signOut = () => firebase.auth().signOut()
 
@@ -43,7 +39,7 @@ export const addPost = (post, userId, user, privacySelectValue, numberLike, date
 }
 
 export const getPost = (callback) =>
-  firebase.firestore().collection('post').orderBy("date", "desc")
+  firebase.firestore().collection('post')
     .onSnapshot((querySnapshot) => {
       const data = [];
       querySnapshot.docs.forEach((post) => {
@@ -53,8 +49,7 @@ export const getPost = (callback) =>
           user: post.data().user,
           userId: post.data().userId,
           privacy: post.data().privacy,
-          likes: post.data().likes,
-          date: post.data().date
+         
         })
       });
       callback(data);
@@ -78,6 +73,7 @@ export const editPost = (id, textPost, privacy) => {
 }
 
 export const editLike = (id, totaLike, newLike) => {
+  
   return firebase.firestore().collection('post').doc(id).update({
     likes: totaLike + newLike
   })
@@ -110,3 +106,39 @@ export const getComentPost = (id, callback) => {
 // }
    
 } 
+
+export const getPublicPost = (callback) =>
+  firebase.firestore().collection('post').where("privacy", "==", "public").orderBy("date", "desc")
+    .onSnapshot((querySnapshot) => {
+      const data = [];
+      querySnapshot.docs.forEach((post) => {
+        data.push({
+          id: post.id,
+          post: post.data().post,
+          user: post.data().user,
+          userId: post.data().userId,
+          privacy: post.data().privacy,
+          likes: post.data().likes,
+          date: post.data().date
+        })
+      });
+      callback(data);
+    });
+
+    export const getPrivatePost = (callback) =>
+  firebase.firestore().collection('post').where("privacy", "==", "private").orderBy("date", "desc")
+    .onSnapshot((querySnapshot) => {
+      const data = [];
+      querySnapshot.docs.forEach((post) => {
+        data.push({
+          id: post.id,
+          post: post.data().post,
+          user: post.data().user,
+          userId: post.data().userId,
+          privacy: post.data().privacy,
+          likes: post.data().likes,
+          date: post.data().date
+        })
+      });
+      callback(data);
+    });

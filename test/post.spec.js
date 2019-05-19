@@ -5,6 +5,15 @@ const fixtureData = {
     post: {
       __doc__: {
         abc123: {
+          __collection__: {
+            comments: {
+              __doc__: {
+                abz12345: {
+                  postComent: 'hola'
+                }
+              }
+            }
+          },
           likes: 0,
           post: 'Hola mundo',
           privacy: 'public',
@@ -29,7 +38,8 @@ import {
   editPost,
   deletedPost,
   addCommentPost,
-  getComentPost
+  getComentPost,
+  editLike
 } from "../src/controller/controller-Firebase.js";
 
 describe('addPost', () => {
@@ -72,16 +82,29 @@ describe('deletedPost', () => {
   })
 })
 
-/* describe('addCommentPost', () => {
-  it('addCommentPost deberia ',(done) => {
-    return addCommentPost('abc123','Muy bueno').then (()=>{
+/*  describe('editLike',() => {
+  it('deberia tener conteo de los me gustas en los post',(done)=>{
+    return editLike('abc123', 0, 1).then(()=> {
       const callback = (post) => {
-        const commet = post.find(ele => ele.post=== 'Muy bueno');
-        expect(commet).toBe('Muy bueno');
+        const postLIke = post.find(ele => ele.id === 'abc123')
+        expect(postLIke.likes).toEqual (0 + 1)
         done()
       }
-      getComentPost('abc123',callback)
+      getPost(callback)
+    })
+  })
+})  */
+ 
+describe('addCommentPost', () => {
+  it('addCommentPost deberia ', (done) => {
+    return addCommentPost('abc123', 'Muy bueno').then(() => {
+      const callback = (post) => {
+        const commet = post.find(ele => ele.postComent === 'Muy bueno');
+        expect(commet.postComent).toBe('Muy bueno');
+        done()
+      }
+      getComentPost('abc123', callback)
     })
   })
 
-}) */
+}) 
