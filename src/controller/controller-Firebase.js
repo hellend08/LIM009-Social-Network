@@ -104,5 +104,9 @@ export const getComentPost = (id, callback) => {
       });
       callback(data)
     });
+
+// export conts addImagePost = () => {
+//   const storageRef = firebase.storage().ref();
+// }
    
 } 

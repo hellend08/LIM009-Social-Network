@@ -30,7 +30,7 @@ export const home = (post) => {
       <textarea class="share-post" name="textarea" rows="8" cols="50" id="input-post" placeholder="¿Qué estas pensando?"></textarea>
       <form>
       <label for="file">&#128247</label>
-      <input class="hidden" type="file" id="file" name="file" accept="image/png, image/jpeg, image/gif" multiple>
+      <input class="hidden" type="file" id="input-file" name="file" accept="image/png, image/jpeg, image/gif" multiple>
         <select id="privacy-select">
           <option value="public" > Público &#128101 </option>
           <option value="private">Privado &#128274</option>
@@ -50,6 +50,7 @@ export const home = (post) => {
   const privacySelect = pageMain.querySelector('#privacy-select');
   const btnAddPost = pageMain.querySelector('#btn-add-post');
   const divPost = pageMain.querySelector('#post-content');
+  const inputFile = pageMain.querySelector('#input-file');
   post.forEach((post, index) => {
     divPost.appendChild(itemPost(post, index, userId))
   });

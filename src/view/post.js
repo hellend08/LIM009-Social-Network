@@ -23,20 +23,20 @@ export default (post, index, userId) => {
   if (userId === post.userId && (post.privacy === 'private' || post.privacy === 'public')) {
     divPostContent.innerHTML = ` 
     <section class="block-post">
-    <p class="user-post"> ${post.user}  <span id="btn-deleted-${index}"> &#x1D5EB  </span> </p>
-    <p class="post-post"> ${post.privacy === 'private' ? `${post.post} &#128274   ` :
+      <p class="user-post"> ${post.user}  <span id="btn-deleted-${index}"> &#x1D5EB  </span> </p>
+      <p class="post-post"> ${post.privacy === 'private' ? `${post.post} &#128274   ` :
         `${post.post} &#128101`} </p>
-    <div>
-      <span id="btn-edit-${index}"> <img class="icon-post" src="./img/edit.png"> </span>
-      <span id="count-likes-${index}">${post.likes} <img class="icon-post" src="./img/like.png"> </span>   
-      <span id = "btn-coment-${index}"> 	&#x1F4AC  </span>   
+      <span><img class="icon-post" src="./img/delete.png"></span>
+      <form>
+        <span id="btn-edit-${index}"> <img class="icon-post" src="./img/edit.png"> </span>
+        <span id="count-likes-${index}">${post.likes} <img class="icon-post" src="./img/like.png"> </span>   
+        <span id = "btn-coment-${index}"> 	&#x1F4AC  </span>
+      </form>
       <div id="comments-content-${index}" ></div> </div>
       <div id="comment-content-${index}" ></div> </div>
-    </div>
-  </section>
+      </div>
+    </section>`;
 
-      
-      `;
     divPostContent.querySelector(`#count-likes-${index}`).addEventListener('click', () => {
       countLikes(post.id, post.likes, 1)
     })
@@ -63,15 +63,16 @@ export default (post, index, userId) => {
       divPostContent.innerHTML = `
       <section>
         <p> ${post.user} </p>
-        <p class="post-post"> ${post.post} &#128101  </p>  
-       
+        <p class="post-post"> ${post.post} &#128101  </p>
+        <span><img class="icon-post" src="./img/delete.png"></span>
         <div>
-        <span id="count-likes-${index}">${post.likes} <img class="icon-post" src="./img/like.png"> </span>   
-        <span id = "btn-coment-${index}"> 	&#x1F4AC  </span>   
-      <div id="comments-content-${index}" ></div> </div>
-      <div id="comment-content-${index}" ></div> </div>
+          <form>
+            <span id="count-likes-${index}">${post.likes} <img class="icon-post" src="./img/like.png"> </span>   
+            <span id = "btn-coment-${index}"> 	&#x1F4AC  </span>
+          <form>
+          <div id="comments-content-${index}" ></div> </div>
+           <div id="comment-content-${index}" ></div> </div>
         </div>
-
       </section>`;
       divPostContent.querySelector(`#btn-coment-${index}`).addEventListener('click', () => {
         const divComment = divPostContent.querySelector(`#comment-content-${index}`)
