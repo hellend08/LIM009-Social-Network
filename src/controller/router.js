@@ -2,9 +2,11 @@ import { components } from '../view/index.js'
 import { logOutSubmit } from '../view/view-controller.js'
 import { userData, onUsuarioLoggeado, getPost } from '../controller/controller-Firebase.js'
 
+
+
 export const changeView = (router) => {
   const divContainer = document.getElementById('all-page');
-  divContainer.innerHTML = '';
+  divContainer.innerHTML = ''; // ANtes de hacr cualquier cambio te limpies
   switch (router) {
     case '#/signIn': {
       if (!userData()) {
@@ -20,12 +22,13 @@ export const changeView = (router) => {
     }
       break;
     case '#/home': {
-      if (userData()) {
+      if (userData()) {        
         getPost((post) => {
           divContainer.innerHTML = '';
           divContainer.appendChild(components.home(post))
         })
       } else {
+       
         window.location.hash = '#/signIn'
       }
     }
@@ -46,9 +49,11 @@ export const changeView = (router) => {
 
 
 export const initRouter = () => {
-  window.addEventListener('load', () => {
-    setTimeout(() => changeView(window.location.hash), 700)
+  window.addEventListener('load', () => { 
+    //changeView(window.location.hash)
+   setTimeout(() => changeView(window.location.hash), 700)
   })
   if (("onhashchange" in window)) window.onhashchange = () => changeView(window.location.hash)
-  onUsuarioLoggeado(() => changeView('#/home'))
+ 
+  //onUsuarioLoggeado(() => changeView('#/home'))
 }

@@ -82,18 +82,18 @@ describe('deletedPost', () => {
   })
 })
 
-/*  describe('editLike',() => {
+   describe('editLike',() => {
   it('deberia tener conteo de los me gustas en los post',(done)=>{
     return editLike('abc123', 0, 1).then(()=> {
       const callback = (post) => {
         const postLIke = post.find(ele => ele.id === 'abc123')
-        expect(postLIke.likes).toEqual (0 + 1)
+        expect(postLIke).toEqual (0 + 1)
         done()
       }
       getPost(callback)
     })
   })
-})  */
+})   
  
 describe('addCommentPost', () => {
   it('addCommentPost deberia ', (done) => {
