@@ -22,17 +22,17 @@ export default (post, index, userId) => {
   const divPostContent = document.createElement('div');
   divPostContent.innerHTML = ` 
     <section class="block-post">
-    <p class="user-post"> ${post.user}${userId === post.userId ?
+    <p class="user-post">Publicado por ${post.user}${userId === post.userId ?
       `<span id="btn-deleted-${index}"><img class="icon-post" src="./img/delete.png"></span>` : ''} </p>
     <p class="post-post"> ${post.privacy === 'private' ? `${post.post} &#128274 ` :
       `${post.post} &#128101`} </p>`;
   if (userId === post.userId) {
-    divPostContent.innerHTML += `<span id="btn-edit-${index}"> 
+    divPostContent.innerHTML += `
+    <span id="btn-edit-${index}"> 
       <img class="icon-post" src="./img/edit.png"> </span>
       `;
   }
-
-  divPostContent.innerHTML += ` <span id="count-likes-${index}">${post.likes} <img class="icon-post" src="./img/like.png"></span>   
+  divPostContent.innerHTML += `<span id="count-likes-${index}">${post.likes} <img class="icon-post" src="./img/like.png"></span>   
       <span id = "btn-coment-${index}"> 	&#x1F4AC  </span>   
       <div id="comments-content-${index}" ></div>
       <div id="comment-content-${index}" ></div>

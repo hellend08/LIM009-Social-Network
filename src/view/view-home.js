@@ -13,10 +13,10 @@ export const home = (post) => {
   <main>
     <nav class="menu">
       <ul>
-        <a class="menu-items" href=""> <h4> &#x1F464 ${user.displayName ? `${user.displayName}` : `${user.email}`} </h4></a>
+        <a class="menu-items" href=""><h4> &#x1F464 ${user.displayName ? `${user.displayName}` : `${user.email}`} </h4></a>
         <a class="menu-items" href="#/home"> <h4> <img class="icon-menu" src="./img/recycle.png"> PureLife </h4> </a>
         <a class="menu-items" href="#/signOut"><h4> <img class="icon-menu" src="./img/logout.png"> cerrar sesion </h4> </a>
-        <a class="menu-menu" href=""> <h1> &#9776 </h1> </a>
+        <a class="hidden" href=""> <h1> &#9776 </h1> </a>
       </ul>
     </nav>
     <div class="container-home">

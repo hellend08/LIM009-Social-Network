@@ -84,7 +84,7 @@ body{
 	flex-direction: column;
     align-items: flex-start;
     border-radius: 15px;
-    background: #acc864;
+    background: #A1CF6B;
     margin: 20px 20px auto;
 }
 
@@ -107,24 +107,25 @@ body{
 .menu-items{
     display: inline-block;
     padding: 15px;
-    color: black;
+    color: #243010;
     text-decoration: none;
 }
 
 .menu-items:hover{
-    color: green;
+    color: #F3F9D2;
 }
 
 .menu-menu{
     display: inline-block;
     padding: 15px;
-    color: black;
+    color: #243010;
     text-decoration: none;
 }
 
 .icon-menu{
     width: 15px;
     height: auto;
+    margin: 0px 0px 0px 350px;
 }
 
 .block-home{
@@ -152,7 +153,7 @@ body{
 }
 
 .share-post{
-    border: 3px solid #1a3f13;
+    border: 3px solid #243010;
     /* padding: 0px 15px; */
     width: 450px;
     border-radius: 15px;
@@ -161,20 +162,39 @@ body{
 
 .block-post{
     display: block;
-    padding: 50px 0px 100px 0px;
+    padding: 50px 0px 10px 0px;
 }
 
+.user-post{
+    /* margin: 10px 50px 10px 0px; */
+    display: block;
+    /* background: #2274A5; */
+}
 .post-post{
     display: block;
-    padding: 50px 150px 50px 150px;
-    border: 3px solid #1a3f13;
-    background: #dce29f;
+    width: 450px;
+    height: 150px;
+    text-align: center;
+    border: 3px solid #243010;
+    /* border-radius: 15px; */
+    background: #F3F9D2;
 }
 
 .icon-post{
     width: 20px;
     height: auto;
     /* margin: 10px 10px 10px 10px; */
+}
+
+.comment{
+    display: block;
+    width: 350px;
+    height: 50px;
+    margin: 10px 10px 10px 0px;
+    text-align: center;
+    border: 3px solid #243010;
+    border-radius: 10px;
+    background: #ffee7c;
 }
 
 @media screen and (min-width: 800px) {
@@ -185,7 +205,7 @@ body{
     }
 
     .container-home{
-        flex-direction: row;
+      flex-direction: row;
       justify-content: space-evenly;
       min-height: 100vh;
     }
