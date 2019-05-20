@@ -20,25 +20,25 @@ export const home = (post) => {
       </ul>
     </nav>
     <div class="container-home">
-    <article class="block-profile">
-      <img class="profile-logo" src="${user.photoURL ? `${user.photoURL}` : `./img/avatar.png`}">
-      <h3> Bienvenido <br>
-      ${user.displayName ? `${user.displayName}` : `${user.email}`} </h3>
-    </article>
-    <section class="block-home">
-      <textarea class="share-post" name="textarea" rows="8" cols="50" id="input-post" placeholder="¿Qué estas pensando?"></textarea>
-      <form>
-      <label for="input-file">&#128247</label>
-      <input class="hidden" type="file" id="input-file" name="file" accept="image/png, image/jpeg, image/gif" multiple>
-        <select id="privacy-select">
-          <option value="public" > Público &#128101 </option>
-          <option value="private">Privado &#128274</option>
-        </select>
-        <button class="button" id="btn-add-post"> Share </button>
-        <button class="hidden" id="btn-edit-post"> Edit </button>
-      </form>
-    <div class="block-home" id= "post-content"></div>
-    </section>
+      <article class="block-profile">
+        <img class="profile-logo" src="${user.photoURL ? `${user.photoURL}` : `./img/avatar.png`}">
+        <h3> Bienvenido <br>
+        ${user.displayName ? `${user.displayName}` : `${user.email}`} </h3>
+      </article>
+      <section class="block-home">
+        <textarea class="share-post" name="textarea" rows="8" cols="50" id="input-post" placeholder="¿Qué estas pensando?"></textarea>
+        <form>
+          <label for="input-file">&#128247</label>
+          <input class="hidden" type="file" id="input-file" name="file" accept="image/png, image/jpeg, image/gif" multiple>
+          <select id="privacy-select">
+            <option value="public" > Público &#128101 </option>
+            <option value="private">Privado &#128274</option>
+          </select>
+          <button class="button" id="btn-add-post"> Share </button>
+          <button class="hidden" id="btn-edit-post"> Edit </button>
+        </form>
+        <div class="block-home" id="post-content"></div>
+      </section>
     </div>
   </main>`;
 
@@ -69,6 +69,7 @@ export const home = (post) => {
   });
   btnAddPost.addEventListener('click', () => {
     const privacySelectValue = privacySelect.value
+
     addPostSubmit(userId, userName, privacySelectValue, numberLike)
   });
   return pageMain;
