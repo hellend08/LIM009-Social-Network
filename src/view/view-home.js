@@ -28,7 +28,7 @@ export const home = (post) => {
     <section class="block-home">
       <textarea class="share-post" name="textarea" rows="8" cols="50" id="input-post" placeholder="¿Qué estas pensando?"></textarea>
       <form>
-      <label for="file">&#128247</label>
+      <label for="input-file">&#128247</label>
       <input class="hidden" type="file" id="input-file" name="file" accept="image/png, image/jpeg, image/gif" multiple>
         <select id="privacy-select">
           <option value="public" > Público &#128101 </option>

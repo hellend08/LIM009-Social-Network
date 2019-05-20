@@ -23,7 +23,7 @@ export default (post, index, userId) => {
   divPostContent.innerHTML = ` 
     <section class="block-post">
     <p class="user-post"> ${post.user}${userId === post.userId ?
-      `<span id="btn-deleted-${index}"> &#x1D5EB </span>` : ''} </p>
+      `<span id="btn-deleted-${index}"><img class="icon-post" src="./img/delete.png"></span>` : ''} </p>
     <p class="post-post"> ${post.privacy === 'private' ? `${post.post} &#128274 ` :
       `${post.post} &#128101`} </p>
     <div>`
