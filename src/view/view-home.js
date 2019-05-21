@@ -19,33 +19,35 @@ export const home = (post) => {
         <a class="hidden" href=""> <h1> &#9776 </h1> </a>
       </ul>
     </nav>
-    <div class="block-home">
-      <article class="block-profile">
-        <span><img class="titulo" src="./img/titulo.png"></span>
-        <img class="profile-logo" src="${user.photoURL ? `${user.photoURL}` : `./img/avatar.png`}">
-        <p> Bienvenido ${user.displayName ? `${user.displayName}` : `${user.email}`} </p>
-      </article>
-      <section class="block-post">
+    <div class="container-home">
+    <section class="block-home">
+    <article class="block-profile">
+      <img class="profile-logo" src="${user.photoURL ? `${user.photoURL}` : `./img/avatar.png`}">
+      <h3> Bienvenido <br>
+      ${user.displayName ? `${user.displayName}` : `${user.email}`} </h3>
+    </article>
+     <div class="block-post" >
       <form class="form-post">
-        <textarea class="share-post" name="textarea" rows="8" cols="50" id="input-post" placeholder="¿Qué estas pensando?"></textarea>
-        <div class="container-btn">
-          <label for="input-file">&#128247</label>
-          <input class="hidden" type="file" id="input-file" name="file" accept="image/png, image/jpeg, image/gif" multiple>
-          <div class="select">
-          <select id="privacy-select">
-            <option value="public" > Público &#128101 </option>
-            <option value="private">Privado &#128274</option>
-            </select>
-            </div>
-          <button class="button" id="btn-add-post"> Share </button>
-          <button class="hidden" id="btn-edit-post"> Edit </button>
-          </div>
-        </form>
-        <div id="post-content"></div>
-      </section>
+      <textarea class="share-post" name="textarea" rows="8" cols="50" id="input-post" placeholder="¿Qué estas pensando?"></textarea>
+      <div class="container-btn">
+      <label for="file">&#128247</label>
+      <input type="file" class="hidden" type="file" id="file" name="file" multiple>
+      <div class="select">
+        <select  id="privacy-select">
+          <option value="public" > Público &#128101 </option>
+          <option value="private">Privado &#128274</option>
+        </select>
       </div>
-      </main>`;
-
+        <button type="button" class="button"  id="btn-add-post"> Share </button>
+        <button type="button" class="hidden" id="btn-edit-post"> Edit </button>
+        </div>
+      </form>
+    <div id= "post-content"></div>
+    </div>
+    </section>
+   
+    </div>
+  </main>`;
 
   pageMain.innerHTML = template;
   const userName = user.displayName ? user.displayName : user.email;
@@ -56,33 +58,31 @@ export const home = (post) => {
   const divPost = pageMain.querySelector('#post-content');
 
 
-   post.forEach((post, index) => {
+    post.forEach((post, index) => {
     if (userId === post.userId) {
       divPost.appendChild(itemPost(post, index, userId))
     }
-  }) 
+  })   
  
-  /*  getPrivatePost(userId,(postArray)=> {
+     /* getPrivatePost(userId,(postArray)=> {     
     postArray.forEach((post, index) => {
-     
-      divPost.appendChild(itemPost(post, index, userId))
-      
+      divPost.appendChild(itemPost(post, index, userId))   
     })
-  })   */
+    })  */
 
-  getPublicPost((postPublic) => {
+   getPublicPost((postPublic) => {
     postPublic.forEach((post, index) => {
       if (userId != post.userId) {
-        divPost.innerHTML=''
         divPost.appendChild(itemPost(post, index, userId))
       }
     })
-  })
+  }) 
 
 
 
 
-  btnAddPost.addEventListener('click', () => {
+  btnAddPost.addEventListener('click', (e) => {
+    e.preventDefault()
     const privacySelectValue = privacySelect.value
 
     addPostSubmit(userId, userName, privacySelectValue, numberLike)

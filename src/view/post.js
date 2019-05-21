@@ -32,10 +32,15 @@ export default (post, index, userId) => {
       <img class="icon-post" src="./img/edit.png"> </span>
       `;
   }
-  divPostContent.innerHTML += `<span id="count-likes-${index}">${post.likes} <img class="icon-post" src="./img/like.png"></span>   
-      <span id = "btn-coment-${index}"> 	&#x1F4AC  </span>   
-      <div id="comments-content-${index}" ></div>
-      <div id="comment-content-${index}" ></div>
+
+  divPostContent.innerHTML += ` <span id="count-likes-${index}">${post.likes} <img class="icon-post" src="./img/like.png"> </span>   
+   
+      <div id="comments-content-${index}" ></div> </div>
+     
+      <input class= "imput-comment"name="text" rows="8" cols="50" id="input-comment"
+  placeholder="Comentario"></input>
+  <button class="button" id="btn-comment-post-${index}"> Comentar </button>  
+    </div>
   </section>
     
       `;
@@ -53,7 +58,7 @@ export default (post, index, userId) => {
       deletedPostSubmit(post.id)
     });
   }
-  divPostContent.querySelector(`#btn-coment-${index}`).addEventListener('click', () => {
+  /*  divPostContent.querySelector(`#btn-coment-${index}`).addEventListener('click', () => {
     const divComment = divPostContent.querySelector(`#comment-content-${index}`)
     divComment.appendChild(addCommentSubmit(post.id, index))
   });
@@ -64,7 +69,18 @@ export default (post, index, userId) => {
     comments.forEach(comment => {
       divComments.appendChild(commenTemplates(comment));
     });
-  });
-
+  }) */
+  const btnComment = divPostContent.querySelector(`#btn-comment-post-${index}`)
+  btnComment.addEventListener('click', () => {
+    commentPostSubmit(post.id, index)
+  })
+  const divComments = divPostContent.querySelector(`#comments-content-${index}`)
+  getComentPost(post.id, (comments) => {
+    divComments.innerHTML = '';
+    comments.forEach(comment => {
+      divComments.appendChild(commenTemplates(comment))
+    });
+  })
+  
   return divPostContent;
 }

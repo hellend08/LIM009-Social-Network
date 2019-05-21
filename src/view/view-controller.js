@@ -81,7 +81,8 @@ export const editPostSubmit = (textPost, id) => {
   addHiddenClassList(btnAddPost)
   const btnEditPost = document.querySelector('#btn-edit-post')
   addShowClassList(btnEditPost);
-  btnEditPost.addEventListener('click', () => { 
+  btnEditPost.addEventListener('click', (e) => { 
+     e.preventDefault()
     btnEditPostSubmit(btnAddPost, btnEditPost, id)
   });
 }
@@ -104,8 +105,8 @@ export const deletedPostSubmit = (id) => {
 
 export const commentPostSubmit = (id, index) => {
   const inputValue = document.getElementById('input-comment');
-  const divContentComment = document.querySelector(`#comment-content-${index}`);
+  const divContentComment = document.querySelector(`#input-comment`);
   addCommentPost(id, inputValue.value)
-  divContentComment.innerHTML = '';
+  divContentComment.value = '';
 
 }
