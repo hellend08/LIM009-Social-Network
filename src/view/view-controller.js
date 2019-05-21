@@ -81,7 +81,7 @@ export const editPostSubmit = (textPost, id) => {
   addHiddenClassList(btnAddPost)
   const btnEditPost = document.querySelector('#btn-edit-post')
   addShowClassList(btnEditPost);
-  btnEditPost.addEventListener('click', () => {
+  btnEditPost.addEventListener('click', () => { 
     btnEditPostSubmit(btnAddPost, btnEditPost, id)
   });
 }

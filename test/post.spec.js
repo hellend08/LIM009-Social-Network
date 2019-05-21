@@ -1,35 +1,37 @@
 import MockFirebase from 'mock-cloud-firestore';
 
-const fixtureData = {
-  __collection__: {
-    post: {
-      __doc__: {
-        abc123: {
-          __collection__: {
-            comments: {
-              __doc__: {
-                abz12345: {
-                  postComent: 'hola'
+beforeEach(() => {
+  const fixtureData = {
+    __collection__: {
+      post: {
+        __doc__: {
+          abc123: {
+            __collection__: {
+              comments: {
+                __doc__: {
+                  abz12345: {
+                    postComent: 'hola'
+                  }
                 }
               }
-            }
-          },
-          likes: 0,
-          post: 'Hola mundo',
-          privacy: 'public',
-          user: 'Ivana Chiquinquira Olortegui Moreno',
-          userId: 'lIwQuh6fYSXpUF9ukwHJNmeaEln2'
+            },
+            likes: 0,
+            post: 'Hola mundo',
+            privacy: 'public',
+            user: 'Ivana Chiquinquira Olortegui Moreno',
+            userId: 'lIwQuh6fYSXpUF9ukwHJNmeaEln2'
 
-        },
-        /* abc124: {
-          title: 'Me encanta reciclar'
-        } */
+          },
+          /* abc124: {
+            title: 'Me encanta reciclar'
+          } */
+        }
       }
     }
   }
-}
 
-global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
+  global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
+})
 
 import {
 
@@ -82,19 +84,19 @@ describe('deletedPost', () => {
   })
 })
 
-   describe('editLike',() => {
-  it('deberia tener conteo de los me gustas en los post',(done)=>{
-    return editLike('abc123', 0, 1).then(()=> {
+describe('editLike', () => {
+  it('deberia tener conteo de los me gustas en los post', (done) => {
+    return editLike('abc123', 0, 1).then(() => {
       const callback = (post) => {
         const postLIke = post.find(ele => ele.id === 'abc123')
-        expect(postLIke).toEqual (0 + 1)
+        expect(postLIke.likes).toEqual(0 + 1)
         done()
       }
       getPost(callback)
     })
   })
-})   
- 
+})
+
 describe('addCommentPost', () => {
   it('addCommentPost deberia ', (done) => {
     return addCommentPost('abc123', 'Muy bueno').then(() => {

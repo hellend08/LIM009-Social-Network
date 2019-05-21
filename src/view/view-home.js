@@ -1,4 +1,4 @@
-import { userData, getPublicPost } from '../controller/controller-Firebase.js'
+import { userData, getPublicPost, getPrivatePost } from '../controller/controller-Firebase.js'
 import { addPostSubmit } from './view-controller.js'
 
 import itemPost from './post.js'
@@ -19,28 +19,33 @@ export const home = (post) => {
         <a class="hidden" href=""> <h1> &#9776 </h1> </a>
       </ul>
     </nav>
-    <div class="container-home">
+    <div class="block-home">
       <article class="block-profile">
         <span><img class="titulo" src="./img/titulo.png"></span>
         <img class="profile-logo" src="${user.photoURL ? `${user.photoURL}` : `./img/avatar.png`}">
         <p> Bienvenido ${user.displayName ? `${user.displayName}` : `${user.email}`} </p>
       </article>
-      <section>
+      <section class="block-post">
+      <form class="form-post">
         <textarea class="share-post" name="textarea" rows="8" cols="50" id="input-post" placeholder="¿Qué estas pensando?"></textarea>
-        <form>
+        <div class="container-btn">
           <label for="input-file">&#128247</label>
           <input class="hidden" type="file" id="input-file" name="file" accept="image/png, image/jpeg, image/gif" multiple>
+          <div class="select">
           <select id="privacy-select">
             <option value="public" > Público &#128101 </option>
             <option value="private">Privado &#128274</option>
-          </select>
+            </select>
+            </div>
           <button class="button" id="btn-add-post"> Share </button>
           <button class="hidden" id="btn-edit-post"> Edit </button>
+          </div>
         </form>
-        <div class="block-home" id="post-content"></div>
+        <div id="post-content"></div>
       </section>
-    </div>
-  </main>`;
+      </div>
+      </main>`;
+
 
   pageMain.innerHTML = template;
   const userName = user.displayName ? user.displayName : user.email;
@@ -51,19 +56,29 @@ export const home = (post) => {
   const divPost = pageMain.querySelector('#post-content');
 
 
-  post.forEach((post, index) => {
+   post.forEach((post, index) => {
     if (userId === post.userId) {
       divPost.appendChild(itemPost(post, index, userId))
     }
-  })
+  }) 
+ 
+  /*  getPrivatePost(userId,(postArray)=> {
+    postArray.forEach((post, index) => {
+     
+      divPost.appendChild(itemPost(post, index, userId))
+      
+    })
+  })   */
 
-  getPublicPost((postPrivate) => {
-    postPrivate.forEach((post, index) => {
+  getPublicPost((postPublic) => {
+    postPublic.forEach((post, index) => {
       if (userId != post.userId) {
+        divPost.innerHTML=''
         divPost.appendChild(itemPost(post, index, userId))
       }
     })
   })
+
 
 
 
