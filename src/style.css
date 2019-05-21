@@ -79,11 +79,16 @@ body{
 
 
 /* HOME */
+main{
+    background-image: url(./img/fondo1.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
 .container-home{
     display: flex;
 	flex-direction: column;
     align-items: flex-start;
-    background-image: url(./img/fondo-page.jpg);
+    /* background-image: url(./img/fondo-page.jpg); */
     margin: 20px 20px auto;
 }
 
@@ -97,7 +102,7 @@ body{
 
 .menu{
     background:#50C45F;
-    margin: 20px;
+    /* margin: 20px; */
     padding: 15px;
     border-radius: 15px;
     /* text-align: center; */
@@ -134,24 +139,28 @@ body{
     margin: 50px;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: start;
     background-color: hsla(96, 96%, 22%, 0.3);
     border-radius: 15px;
   }
 
 .block-profile{
-    float: left;
+    display: flex;
+    flex-direction: column;
     margin: 50px;
-    padding: 15px;
-    border-radius: 15px;
-    background-color: hsla(96, 96%, 22%, 0.3);
+    padding: 30px 60px 30px 60px;
+    /* border-radius: 15px; */
+    border: 1px solid #243010;
+    background: #50C45F;
     align-items: center;
   }
 
 .profile-logo{
-    margin: auto; 
-    height: 200px;
-    width: 200px;
+    float: left;
+    margin: 10px; 
+    height: 100px;
+    width: 100px;
     border-radius: 25px;
 }
 
@@ -168,13 +177,17 @@ body{
     display: block;
     padding: 50px 50px 10px 50px;
     border-radius: 15px;
+    /* border: 3px solid #243010; */
 }
 
 .user-post{
     /* margin: 10px 50px 10px 0px; */
+    padding: 10px;
+    color: white;
     display: block;
-    border-style: double;
+    border: 3px solid #243010;
     border-bottom-style: none;
+    background: #50C45F;
     /* background: #2274A5; */
 }
 .post-post{
@@ -221,5 +234,16 @@ form {
       justify-content: space-evenly;
       min-height: 100vh;
     }
+
+    /* .block-profile{
+        flex-direction: column;
+        justify-content: space-evenly;
+        /* min-height: 100vh; */
+    }
+
+    .block-home{
+        flex-direction: column;
+        justify-content: space-evenly;
+    } */
 
 }

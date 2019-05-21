@@ -21,9 +21,9 @@ export const home = (post) => {
     </nav>
     <div class="container-home">
       <article class="block-profile">
+        <span><img class="titulo" src="./img/titulo.png"></span>
         <img class="profile-logo" src="${user.photoURL ? `${user.photoURL}` : `./img/avatar.png`}">
-        <h3> Bienvenido <br>
-        ${user.displayName ? `${user.displayName}` : `${user.email}`} </h3>
+        <p> Bienvenido ${user.displayName ? `${user.displayName}` : `${user.email}`} </p>
       </article>
       <section>
         <textarea class="share-post" name="textarea" rows="8" cols="50" id="input-post" placeholder="¿Qué estas pensando?"></textarea>
