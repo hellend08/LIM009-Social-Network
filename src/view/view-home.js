@@ -25,7 +25,7 @@ export const home = (post) => {
         <h3> Bienvenido <br>
         ${user.displayName ? `${user.displayName}` : `${user.email}`} </h3>
       </article>
-      <section class="block-home">
+      <section>
         <textarea class="share-post" name="textarea" rows="8" cols="50" id="input-post" placeholder="¿Qué estas pensando?"></textarea>
         <form>
           <label for="input-file">&#128247</label>
