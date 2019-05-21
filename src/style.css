@@ -168,6 +168,8 @@ body{
 .user-post{
     /* margin: 10px 50px 10px 0px; */
     display: block;
+    border-style: double;
+    border-bottom-style: none;
     /* background: #2274A5; */
 }
 .post-post{
