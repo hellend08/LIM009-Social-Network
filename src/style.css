@@ -9,6 +9,12 @@ body{
 	min-height: 100vh;
 }
 
+.container-flex {
+    display: flex;
+	flex-direction: column;
+    align-items: center;
+}
+
 /* LOGIN */
 .block-container{
     display: flex;
@@ -151,17 +157,20 @@ main{
     margin: auto;
     height: auto; */
     margin: 50px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: start;
+    /* display: flex;
+    flex-direction: column; */
+    /* flex-wrap: wrap; */
+    /* align-items: start; */
     background-color: hsla(96, 96%, 22%, 0.3);
     border-radius: 15px;
     height: auto; 
-    margin: 100px ;
-    align-items: center;
+    /* margin: 100px ; */
+    /* align-items: center; */
     
   }
+.prueba {
+    background: red;
+}
 
 .block-profile{
     display: flex;
@@ -228,6 +237,10 @@ main{
     /* border: 3px solid #243010; */
 }
 
+h3{
+    text-align: justify;
+}
+
 .user-post{
     /* margin: 10px 50px 10px 0px; */
     padding: 10px;
@@ -242,6 +255,7 @@ main{
     display: block;
     width: 450px;
     height: 150px;
+    padding: 50px 30px;
     text-align: center;
     border: 3px solid #243010;
     /* border-radius: 15px; */

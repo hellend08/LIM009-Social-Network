@@ -20,8 +20,8 @@ export const home = (post) => {
       </ul>
     </nav>
     <div class="container-home">
-    <section class="block-home">
-    <article class="block-profile">
+    <section class="block-home container-flex">
+    <article class="block-profile prueba">
       <img class="profile-logo" src="${user.photoURL ? `${user.photoURL}` : `./img/avatar.png`}">
       <h3> Bienvenido <br>
       ${user.displayName ? `${user.displayName}` : `${user.email}`} </h3>
