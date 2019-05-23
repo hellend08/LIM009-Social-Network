@@ -58,10 +58,10 @@ export const getPost = (callback) => {
   }
   
 export const getPrivatePost = (userIdPost, callback) => {
-   return  firebase.firestore().collection('post').where("userId", "==", userIdPost).orderBy("date", "desc")
-  .onSnapshot((querySnapshot) => {
+   return  firebase.firestore().collection('post')
+   .where("userId", "==", userIdPost).where("privacy", "==", "private")
+   .orderBy("date", "desc").onSnapshot((querySnapshot) => {
     const data = [];
-    console.log(userIdPost);
     querySnapshot.docs.forEach((post) => {
       data.push({
         id: post.id,
@@ -78,7 +78,8 @@ export const getPrivatePost = (userIdPost, callback) => {
   }
 
 export const getPublicPost = (callback) =>{
-  return firebase.firestore().collection('post').where("privacy", "==", "public").orderBy("date", "desc")
+  return firebase.firestore().collection('post')
+  .where("privacy", "==", "public").orderBy("date", "desc")
     .onSnapshot((querySnapshot) => {
       const data = [];
       querySnapshot.docs.forEach((post) => {

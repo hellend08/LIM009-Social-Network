@@ -232,9 +232,8 @@ main{
 
 .block-post{
     display: block;
-    padding: 50px 50px 10px 50px;
-    border-radius: 15px;
-    /* border: 3px solid #243010; */
+    text-align: center;
+    margin: 3% 0% 0% 0%;
 }
 
 h3{
@@ -252,15 +251,13 @@ h3{
     /* background: #2274A5; */
 }
 .post-post{
-    display: block;
-    width: 450px;
-    height: 150px;
-    padding: 50px 30px;
-    text-align: center;
-    border: 3px solid #243010;
-    /* border-radius: 15px; */
-    background: #F3F9D2;
+   
+    border: 3px solid #1a3f13;
+    background: #dce29f;
+    width: 350px;
+    height: 88px;
 }
+
 
 .icon-post{
     width: 20px;

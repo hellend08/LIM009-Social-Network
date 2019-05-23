@@ -22,9 +22,22 @@ beforeEach(() => {
             userId: 'lIwQuh6fYSXpUF9ukwHJNmeaEln2'
 
           },
-          /* abc124: {
-            title: 'Me encanta reciclar'
-          } */
+          abc55: {
+            __collection__: {
+              comments: {
+                __doc__: {
+                  abci12034: {
+                    postComent: 'hola'
+                  }
+                }
+              }
+            }
+          },
+          likes: 0,
+          post: 'Hola mundo',
+          privacy: 'private',
+          user: 'Margarita Fernandez',
+          userId: 'mIwQuh6fYSXpUF9ukwHJNmeaEln2'
         }
       }
     }
@@ -37,6 +50,8 @@ import {
 
   addPost,
   getPost,
+  getPublicPost,
+  getPrivatePost,
   editPost,
   deletedPost,
   addCommentPost,
@@ -53,20 +68,20 @@ describe('addPost', () => {
           expect(postAdded.post).toBe('Hola amigos')
           done()
         }
-        getPost(callback)
+        getPublicPost(callback)
       })
   })
 })
 
 describe('editPost', () => {
   it('editPost aregar un post', (done) => {
-    return editPost('abc123', 'hi', 'public').then(() => {
+    return editPost('abc123', 'hi', 'private').then(() => {
       const callback = (post) => {
         const postAdded = post.find(ele => ele.id === 'abc123')
         expect(postAdded.post).toBe('hi')
         done()
       }
-      getPost(callback)
+      getPrivatePost('lIwQuh6fYSXpUF9ukwHJNmeaEln2', callback)
     })
   })
 })

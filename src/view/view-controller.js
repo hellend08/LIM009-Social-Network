@@ -66,34 +66,18 @@ export const addPostSubmit = (userId, user, privacySelectValue, numberLike) => {
 
 }
 
-const addShowClassList = (id) => {
-  id.classList.add('shower', 'button')
-}
 
-const addHiddenClassList = (id) => {
-  id.classList.add('hidden')
-}
-
-export const editPostSubmit = (textPost, id) => {
-  document.querySelector('#input-post').value = textPost;
-  const btnAddPost = document.querySelector('#btn-add-post');
-  btnAddPost.classList.remove('button', 'shower');
-  addHiddenClassList(btnAddPost)
+export const editPostSubmit = (id, index) => {  
   const btnEditPost = document.querySelector('#btn-edit-post')
-  addShowClassList(btnEditPost);
-  btnEditPost.addEventListener('click', (e) => { 
-     e.preventDefault()
-    btnEditPostSubmit(btnAddPost, btnEditPost, id)
+  btnEditPost.addEventListener('click', () => { 
+    const postEdited = document.querySelector(`#input-edit-${index}`).value
+    const valueSelect = document.querySelector('#privacy-select-edit').value
+    
+    editPost(id,postEdited, valueSelect)
   });
 }
 
-const btnEditPostSubmit = (btnAddPost, btnEditPost, id) => {
-  const postEdited = document.querySelector('#input-post').value;
-  const privacySelectValue = document.querySelector('#privacy-select').value;
-  editPost(id, postEdited, privacySelectValue);
-  addShowClassList(btnAddPost);
-  addHiddenClassList(btnEditPost);
-}
+
 
 export const countLikes = (id, totaLike, newLike) => {
   editLike(id, totaLike, newLike)
@@ -104,9 +88,7 @@ export const deletedPostSubmit = (id) => {
 }
 
 export const commentPostSubmit = (id, index) => {
-  const inputValue = document.getElementById('input-comment');
-  const divContentComment = document.querySelector(`#input-comment`);
+  const inputValue = document.getElementById(`input-comment-${index}`);
   addCommentPost(id, inputValue.value)
-  divContentComment.value = '';
-
+ inputValue.value = '';
 }
