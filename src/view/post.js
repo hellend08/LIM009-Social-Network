@@ -7,24 +7,24 @@ import commenTemplates from './comments.js'
 export default (post, index, userId) => {
   const divPostContent = document.createElement('div');
   divPostContent.innerHTML = ` 
-    <section class="block-post">
+    <section>
     <p class="user-post"> ${post.user}${userId === post.userId ?
-      `<span id="btn-deleted-${index}"> &#x1D5EB </span>` : ''} </p>
+      `<span id="btn-deleted-${index}">   &#x1D5EB </span>` : ''} </p>
     <div id="post-text-${index}" class="post-post"> <p>${post.privacy === 'private' ? `${post.post} &#128274 ` :
       `${post.post} &#128101`}</p> </div>
     <div>`
   if (userId === post.userId) {
     divPostContent.innerHTML += `
     <span id="btn-edit-${index}"> 
-      <img class="icon-post" src="./img/edit.png"> </span>
+      <img class="icon-post" src="./img/edit.png"></span>
       `;
   }
 
   divPostContent.innerHTML += ` <span id="count-likes-${index}">${post.likes} <img class="icon-post" src="./img/like.png"> </span>   
-      <div id="comments-content-${index}" ></div> </div>
+      <div id="comments-content-${index}" ></div>
       <input class= "imput-comment"name="text" rows="8" cols="50" id="input-comment-${index}"
-  placeholder="Comentario"></input>
-  <button class="button" id="btn-comment-post-${index}"> Comentar </button>  
+  placeholder="Comment"></input>
+  <button class="button-home" id="btn-comment-post-${index}"><img class="icon-post" src="./img/telegram.png" ></button>  
     </div>
   </section> 
       `;

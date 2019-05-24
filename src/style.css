@@ -46,7 +46,7 @@ body{
     display: inline-block;
     padding: 9px 50px;
     text-align: center;
-    box-shadow: 3px 3px 0px green; 
+    /* box-shadow: 3px 3px 0px green;  */
     border-radius: 15px;
     margin-left: auto;
     
@@ -95,11 +95,11 @@ main{
 	flex-direction: column;
     align-items: flex-start;
     /* background-image: url(./img/fondo-page.jpg); */
-    margin: 20px 20px auto;
+    margin: 20px;
     border-radius: 15px;
    
     /* margin: 20px 20px auto; */ 
-    background: #acc864;
+    /* background: #acc864; */
 }
 
 .hidden {
@@ -112,7 +112,7 @@ main{
 
 .menu{
     background:#50C45F;
-    /* margin: 20px; */
+    margin-top: 10px;
     padding: 15px;
     border-radius: 15px;
     /* text-align: center; */
@@ -139,28 +139,35 @@ main{
 .icon-menu{
     width: 15px;
     height: auto;
-    margin: 0px 0px 0px 350px;
+    margin: 0px 5px 0px 350px;
 }
+
+/* form {
+    margin: 0% 10%;
+} */
+
 .form-post{
     background-color: #d8dfc5;
     flex-direction: column;
     align-items: start;
-    width: 350px;
+    margin: 10px;
+    /* padding: 15px; */
+    /* width: 350px; */
     border-radius: 5px;
 }
 .container-btn {
     display: flex;
-    margin: 2%;
+    margin: 2% 6%;
 }
 .block-home{
     /* width: 70%;
-    margin: auto;
-    height: auto; */
-    margin: 50px;
+    margin: auto;*/
+    padding: 20px;
+    margin: 20px;
     /* display: flex;
     flex-direction: column; */
     /* flex-wrap: wrap; */
-    /* align-items: start; */
+    align-items: start;
     background-color: hsla(96, 96%, 22%, 0.3);
     border-radius: 15px;
     height: auto; 
@@ -168,40 +175,55 @@ main{
     /* align-items: center; */
     
   }
-.prueba {
-    background: red;
-}
 
 .block-profile{
     display: flex;
     flex-direction: column;
     margin: 50px;
-    padding: 30px 60px 30px 60px;
-    /* border-radius: 15px; */
-    border: 1px solid #243010;
-    background: #50C45F;
-    align-items: center;
     margin-bottom: auto;
+    /* padding: 10px 30px; */
+    /* border-radius: 15px; */
+    /* border: 1px solid #243010; */
+    background: #acc864;
+    align-items: center;
   }
 
+h1{
+    padding: 50px 150px;
+    color: white;
+    background: #243010;
+}
+
+.block-item{
+    padding: 10px;
+    /* display: flex;
+    flex-direction: column; */
+    /* flex-wrap: wrap; */
+    align-items: start;
+    height: auto; 
+}
+
 .profile-logo{
-    float: left;
+    /* position: relative;
+    right: 20px;
+    top: 30px; */
     margin: 10px; 
-    height: 100px;
-    width: 100px;
-    border-radius: 25px;
+    height: 90px;
+    width: 90px;
+    border-radius: 50px;
 }
 .select {
     background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
     height: 29px;
     overflow: hidden;
     width: 120px;
+    margin: 0px 15px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-   
-   background-color: #b1b625;
+    background-color: #b1b625;
 }
+
 .select select {
     background: transparent;
     border: none;
@@ -225,19 +247,23 @@ main{
     text-align-last: center;
     width: 94%;
     margin: 3%;
+    /* padding: 15px; */
     border-radius: 5px;
     text-align: center;
 
 }
 
 .block-post{
-    display: block;
+    display: flex;
+    padding: 30px;
     text-align: center;
-    margin: 3% 0% 0% 0%;
+    margin: 4% 10%;
+    border-radius: 10px;
+    background-color: hsla(96, 96%, 22%, 0.3);
 }
 
-h3{
-    text-align: justify;
+.post-container{
+    margin: 50px 10px;
 }
 
 .user-post{
@@ -245,23 +271,26 @@ h3{
     padding: 10px;
     color: white;
     display: block;
-    border: 3px solid #243010;
-    border-bottom-style: none;
-    background: #50C45F;
+    /* border: 3px solid #243010;
+    border-bottom-style: none; */
+    background: #acc864;
     /* background: #2274A5; */
 }
 .post-post{
    
-    border: 3px solid #1a3f13;
-    background: #dce29f;
-    width: 350px;
+    border: 1px solid #1a3f13;
+    background: white;
+    width: 410px;
     height: 88px;
+    padding: 15px;
+    border-radius: 5px;
 }
 
 
 .icon-post{
     width: 20px;
     height: auto;
+    margin: 5px;
     /* margin: 10px 10px 10px 10px; */
 }
 
@@ -277,14 +306,22 @@ h3{
     background: #243010;
 }
 
-form {
-    margin: 0px 0px 0px 90px;
-}
 .imput-comment{
     border-radius: 15px 50px 30px;
     width: 160px;
     height: 35px;
     text-align: center;
+    margin-bottom: 50px;
+}
+
+.button-home{
+    color: #243010;
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+    border-radius: 15px;
+    margin: 0px 10px;
+    background: #acc864;
 }
  
 @media screen and (min-width: 800px) {
@@ -296,7 +333,7 @@ form {
     .block-post{
         display: flex;
         flex-direction: column;
-        align-items: center;
+        /* align-items: center; */
     }
     .container-home{
       flex-direction: row;
@@ -318,6 +355,13 @@ form {
 
     .block-home{
      
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        
+      }
+
+      .block-item{
         display: flex;
         flex-direction: row;
         align-items: center;

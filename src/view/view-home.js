@@ -16,36 +16,37 @@ export const home = (post) => {
         <a class="menu-items" href=""><h4> &#x1F464 ${user.displayName ? `${user.displayName}` : `${user.email}`} </h4></a>
         <a class="menu-items" href="#/home"> <h4> <img class="icon-menu" src="./img/recycle.png"> PureLife </h4> </a>
         <a class="menu-items" href="#/signOut"><h4> <img class="icon-menu" src="./img/logout.png"> cerrar sesion </h4> </a>
-        <a class="hidden" href=""> <h1> &#9776 </h1> </a>
+        <a class="hidden" href="">&#9776</a>
       </ul>
     </nav>
     <div class="container-home">
-    <section class="block-home container-flex">
-    <article class="block-profile prueba">
-      <img class="profile-logo" src="${user.photoURL ? `${user.photoURL}` : `./img/avatar.png`}">
-      <h3> Bienvenido <br>
-      ${user.displayName ? `${user.displayName}` : `${user.email}`} </h3>
-    </article>
-     <div class="block-post" >
-      <form class="form-post">
-      <textarea class="share-post" name="textarea" rows="8" cols="50" id="input-post" placeholder="¿Qué estas pensando?"></textarea>
-      <div class="container-btn">
-      <label for="file">&#128247</label>
-      <input type="file" class="hidden" type="file" id="file" name="file" multiple>
-      <div class="select">
-        <select  id="privacy-select">
-          <option value="public" > Público &#128101 </option>
-          <option value="private">Privado &#128274</option>
-        </select>
-      </div>
-        <button type="button" class="button"  id="btn-add-post"> Share </button>
-       
+      <section class="block-home container-flex">
+        <article class="block-profile">
+          <h1>PureLife</h1>
+          <div class="block-item">
+            <img class="profile-logo" src="${user.photoURL ? `${user.photoURL}` : `./img/avatar.png`}">
+            <p> Bienvenido <br>
+            ${user.displayName ? `${user.displayName}` : `${user.email}`} </p>
+          </div>
+        </article>
+        <div class="block-post" >
+          <div class="form-post">
+            <textarea class="share-post" name="textarea" rows="8" cols="50" id="input-post" placeholder="¿Qué estas pensando?"></textarea>
+            <form class="container-btn">
+              <label for="file"><img class="icon-post" src="./img/camera-retro.png" ></label>
+              <input type="file" class="hidden" type="file" id="file" name="file" multiple>
+              <div class="select">
+                <select  id="privacy-select">
+                  <option value="public" >Public &#128101</option>
+                  <option value="private">Privade &#128274</option>
+                </select>
+              </div>
+              <button type="button" class="button-home"  id="btn-add-post"> Share </button>
+            </form>
+          </div>
+          <div class="post-container" id= "post-content"></div>
         </div>
-      </form>
-    <div id= "post-content"></div>
-    </div>
-    </section>
-   
+      </section>
     </div>
   </main>`;
 
