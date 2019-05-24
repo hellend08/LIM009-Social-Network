@@ -12,7 +12,7 @@ export default () => {
       <img class="logo" src="./img/logo.png" alt="logo-principal">
     </header>
     <section class="block-login" id="pag-one">
-      <p><img class="titulo" src="./img/titulo.png"></p>
+      <p><img class="tittle" src="./img/titulo.png" alt="tittle"></p>
       <h4 class="text" >Bienvenida a PureLife, la red donde reciclar es divertido.</h4>
       <p class="error-message" id="error-message"></p>
       <input class="login-input" id="email-login" type="email" placeholder="   &#9993    Email">
@@ -20,8 +20,8 @@ export default () => {
       <a href="#/ingresar"><button class="button" id="log-in"> Log In </button></a>
       <article>
         <h4 class="text">O inicia sesión con...</h4>
-        <a id="Facebook"><img class="icon-social" src="./img/facebook.png"></a>
-        <a" id="Gmail"><img class="icon-social" src="./img/gmail.png"></a>
+        <a id="Facebook"><img class="icon-social" src="./img/facebook.png" alt="facebook"></a>
+        <a" id="Gmail"><img class="icon-social" src="./img/gmail.png" alt="gmail"></a>
       </article>
       <h4 class="text" >¿No tienes una cuenta?<a href="#/signUp"> Regístrate.</a></h4>
     </section>

@@ -14,8 +14,8 @@ export const home = (post) => {
     <nav class="menu">
       <ul>
         <a class="menu-items" href=""><h4> &#x1F464 ${user.displayName ? `${user.displayName}` : `${user.email}`} </h4></a>
-        <a class="menu-items" href="#/home"> <h4> <img class="icon-menu" src="./img/recycle.png"> PureLife </h4> </a>
-        <a class="menu-items" href="#/signOut"><h4> <img class="icon-menu" src="./img/logout.png"> cerrar sesion </h4> </a>
+        <a class="menu-items" href="#/home"> <h4> <img class="icon-menu" src="./img/recycle.png" alt="image-recycle"> PureLife </h4> </a>
+        <a class="menu-items" href="#/signOut"><h4> <img class="icon-menu" src="./img/logout.png" alt="log-out"> cerrar sesion </h4> </a>
         <a class="hidden" href="">&#9776</a>
       </ul>
     </nav>
@@ -24,7 +24,7 @@ export const home = (post) => {
         <article class="block-profile">
           <h1>PureLife</h1>
           <div class="block-item">
-            <img class="profile-logo" src="${user.photoURL ? `${user.photoURL}` : `./img/avatar.png`}">
+            <img class="profile-logo" src="${user.photoURL ? `${user.photoURL}` : `./img/avatar.png`}" alt="photo-profile">
             <p> Bienvenido <br>
             ${user.displayName ? `${user.displayName}` : `${user.email}`} </p>
           </div>
@@ -33,7 +33,7 @@ export const home = (post) => {
           <div class="form-post">
             <textarea class="share-post" name="textarea" rows="8" cols="50" id="input-post" placeholder="¿Qué estas pensando?"></textarea>
             <form class="container-btn">
-              <label for="file"><img class="icon-post" src="./img/camera-retro.png" ></label>
+              <label for="file"><img class="icon-post" src="./img/camera-retro.png" alt="get-photo"></label>
               <input type="file" class="hidden" type="file" id="file" name="file" multiple>
               <div class="select">
                 <select  id="privacy-select">

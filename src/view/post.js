@@ -16,15 +16,15 @@ export default (post, index, userId) => {
   if (userId === post.userId) {
     divPostContent.innerHTML += `
     <span id="btn-edit-${index}"> 
-      <img class="icon-post" src="./img/edit.png"></span>
+      <img class="icon-post" src="./img/edit.png" alt="edit-logo"></span>
       `;
   }
 
-  divPostContent.innerHTML += ` <span id="count-likes-${index}">${post.likes} <img class="icon-post" src="./img/like.png"> </span>   
+  divPostContent.innerHTML += ` <span id="count-likes-${index}">${post.likes} <img class="icon-post" src="./img/like.png" alt="logo-like"> </span>   
       <div id="comments-content-${index}" ></div>
       <input class= "imput-comment"name="text" rows="8" cols="50" id="input-comment-${index}"
   placeholder="Comment"></input>
-  <button class="button-home" id="btn-comment-post-${index}"><img class="icon-post" src="./img/telegram.png" ></button>  
+  <button class="button-home" id="btn-comment-post-${index}"><img class="icon-post" src="./img/telegram.png" alt="logo-comment"></button>  
     </div>
   </section> 
       `;
@@ -39,12 +39,10 @@ export default (post, index, userId) => {
       divPostContent.querySelector(`#post-text-${index}`).innerHTML = ''
       divPostContent.querySelector(`#post-text-${index}`).innerHTML = `
        <input id="input-edit-${index}"class="input"name='coment'></input>
-       
        <select  id="privacy-select-edit">
           <option value="public" > Público &#128101 </option>
           <option value="private">Privado &#128274</option>
-        </select>
-       
+        </select> 
       <button type="button"  id="btn-edit-post"> Edit </button>`
       divPostContent.querySelector(`#input-edit-${index}`).value = post.post
     
@@ -58,24 +56,6 @@ export default (post, index, userId) => {
     });
   }
 
-
-  /* const postEdited = document.querySelector('#input-post').value;
-  const privacySelectValue = document.querySelector('#privacy-select').value;
-  editPost(id, postEdited, privacySelectValue); */
-
-
-  /*  divPostContent.querySelector(`#btn-coment-${index}`).addEventListener('click', () => {
-    const divComment = divPostContent.querySelector(`#comment-content-${index}`)
-    divComment.appendChild(addCommentSubmit(post.id, index))
-  });
-  
-  const divComments = divPostContent.querySelector(`#comments-content-${index}`)
-  getComentPost(post.id, (comments) => {
-    divComments.innerHTML = '';
-    comments.forEach(comment => {
-      divComments.appendChild(commenTemplates(comment));
-    });
-  }) */
   const btnComment = divPostContent.querySelector(`#btn-comment-post-${index}`)
   btnComment.addEventListener('click', () => {
     commentPostSubmit(post.id, index)

@@ -20,8 +20,6 @@ body{
     display: flex;
 	flex-direction: column;
     align-items: center;
-    /* box-sizing: border-box */
-    /* background: #1b1c1c; */
 }
 
 .logo {
@@ -46,13 +44,12 @@ body{
     display: inline-block;
     padding: 9px 50px;
     text-align: center;
-    /* box-shadow: 3px 3px 0px green;  */
     border-radius: 15px;
     margin-left: auto;
     
 }
 
-.titulo{
+.tittle{
     display: block;
     margin: auto;
     padding: 20px;
@@ -62,14 +59,13 @@ body{
 
 .block-login{
     text-align: center;
-    /* margin: 10px 0px 10px 0px; */
     padding: 15px 30px;
     background: #acc864;
     border-radius: 15px;
 }
 
 .text{
-    margin: 25px 50px 25px 50px;
+    margin: 25px 50px;
     text-align: center;
     color:  #1b1c1c;
 }
@@ -115,7 +111,6 @@ main{
     margin-top: 10px;
     padding: 15px;
     border-radius: 15px;
-    /* text-align: center; */
 }
 
 .menu-items{
@@ -142,17 +137,11 @@ main{
     margin: 0px 5px 0px 350px;
 }
 
-/* form {
-    margin: 0% 10%;
-} */
-
 .form-post{
     background-color: #d8dfc5;
     flex-direction: column;
     align-items: start;
     margin: 10px;
-    /* padding: 15px; */
-    /* width: 350px; */
     border-radius: 5px;
 }
 .container-btn {
@@ -160,8 +149,6 @@ main{
     margin: 2% 6%;
 }
 .block-home{
-    /* width: 70%;
-    margin: auto;*/
     padding: 20px;
     margin: 20px;
     /* display: flex;
@@ -170,10 +157,7 @@ main{
     align-items: start;
     background-color: hsla(96, 96%, 22%, 0.3);
     border-radius: 15px;
-    height: auto; 
-    /* margin: 100px ; */
-    /* align-items: center; */
-    
+    height: auto;
   }
 
 .block-profile{
@@ -342,10 +326,10 @@ h1{
     }
 
     /* .block-profile{
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-evenly;
-        /* min-height: 100vh; */
-    /* } */
+        min-height: 100vh;
+    } */
 
     /* .block-home{
         flex-direction: column;
